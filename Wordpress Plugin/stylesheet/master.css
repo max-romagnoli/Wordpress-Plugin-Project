@@ -1,0 +1,53 @@
+.diagram {
+  background-color: #666;
+  color: white;
+  padding: 30px;
+  text-align: center;
+}
+
+.rectangular {
+  display: flex;
+  flex-wrap: nowrap;
+  background-color: #fbfdda;
+  float: inherit;
+}
+
+nav {
+  background-color: #cdd1d3;
+  width: 30%;
+  float: left;
+  padding: 2%;
+  align-items: center;
+  justify-content: center;
+}
+
+article {
+  background-color: #e1e9ee;
+  padding: 2%;
+  overflow: auto;
+}
+
+iframe {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  height: auto;
+}
+
+/* RESPONSIVE MEDIA QUERIES */
+
+@media screen and (max-width: 800px) {
+  .rectangular {
+    display: block;
+    flex-wrap: wrap;
+    flex-direction: column;
+    margin-right: auto;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  nav, article {
+    width: 100%;
+    margin-right: auto;
+  }
+}
