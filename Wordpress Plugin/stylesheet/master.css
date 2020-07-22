@@ -5,49 +5,34 @@
   text-align: center;
 }
 
-.rectangular {
+.rectangular-container {
   display: flex;
   flex-wrap: nowrap;
-  background-color: #fbfdda;
-  float: inherit;
-}
-
-nav {
-  background-color: #cdd1d3;
-  width: 30%;
-  float: left;
-  padding: 2%;
-  align-items: center;
   justify-content: center;
+  background-color: #cdd1d3; /* TO BE FIXED! the container shouldn't be meant to have a color, see what happens if u remove it */
 }
 
-article {
+.yt-video {
+  background-color: #cdd1d3;
+  padding: 2%;
+}
+
+.text {
   background-color: #e1e9ee;
   padding: 2%;
-  overflow: auto;
 }
 
-iframe {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  height: auto;
-}
 
 /* RESPONSIVE MEDIA QUERIES */
 
 @media screen and (max-width: 800px) {
-  .rectangular {
-    display: block;
+  .rectangular-container {
     flex-wrap: wrap;
-    flex-direction: column;
-    margin-right: auto;
   }
 }
 
 @media screen and (max-width: 800px) {
-  nav, article {
-    width: 100%;
-    margin-right: auto;
+  .yt-video {
+    margin: auto;
   }
 }
