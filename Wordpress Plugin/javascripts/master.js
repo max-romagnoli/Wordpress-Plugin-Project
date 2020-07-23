@@ -1,4 +1,4 @@
-//use innerText instead of innerHTML. It doesn't matter too much here but innerHTML can cause security risks on websites were users can post things. Always use innerText if you are only inserting text.
+//use innerText instead of innerHTML. It doesn't matter too much here but innerHTML can cause security risks on websites where users can post things. Always use innerText if you are only inserting text.
 //You want to make the function more reusable. If you have 1000 buttons you have a problem with this way of coding.
 //Less code is always better and no code is the best code.
 //use associative array instead of list. (I gave you a wrong indication in the messages on this) That way you can invent keys and assign those keys to html elements in the chart you are making.
