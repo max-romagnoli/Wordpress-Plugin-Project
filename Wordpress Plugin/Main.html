@@ -7,13 +7,13 @@
     <link rel="stylesheet" href="stylesheet/master.css">
     <script src="javascripts/master.js"></script>
   </head>
-  <body>
+  <body  class='body'>
     <section class="diagram">
       Diagram here.
-    <button onclick="loremIpsum()">Lorem ipsum</button>
-    <button onclick="button1()">Button 1</button>
-    <button onclick="button2()">Button 2</button>
-    <button onclick="button3()">Button 3</button>
+    <button data-key='first' onclick="insertData(event)">Lorem ipsum</button>
+    <button data-key='second' onclick="insertData(event)">Button 1</button>
+    <button data-key='third' onclick="insertData(event)">Button 2</button>
+    <button data-key='fourth' onclick="insertData(event)">Button 3</button>
     </section>
 
     <div class="rectangular-container">
