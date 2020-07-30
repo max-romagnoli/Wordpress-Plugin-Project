@@ -1,29 +1,31 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
+<html lang="en">
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wordpress Plugin</title>
-    <link rel="stylesheet" href="stylesheet/master.css">
-    <script src="javascripts/master.js"></script>
-  </head>
-  <body  class='body'>
-    <section class="diagram">
-      Diagram here.
-    <button data-key='first' onclick="insertData(event)">Lorem ipsum</button>
-    <button data-key='second' onclick="insertData(event)">Button 1</button>
-    <button data-key='third' onclick="insertData(event)">Button 2</button>
-    <button data-key='fourth' onclick="insertData(event)">Button 3</button>
-    </section>
+    <title>Zoomable Sunburst</title>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js"></script>
+    <script type="text/javascript" src="javascripts/data.js">
 
-    <div class="rectangular-container">
-      <div class="yt-video">
-        <iframe id="articleVideo" src="https://www.youtube.com/embed/lx9qeRLUYs8"></iframe>
-      </div>
-      <div class="text">
-        <h2 id="articleHeader">Lorem ipsum</h2>
-        <p id="articlePar">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-      </div>
-    </div>
-  </body>
+    </script>
+    <!-- CSS Style //-->
+    <link href="stylesheet/style.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+
+<div style="margin-left:80px;" id="chart"></div>
+
+<div class="rectangular-container">
+  <div class="yt-video">
+    <iframe id="articleVideo" src="https://www.youtube.com/embed/lx9qeRLUYs8"></iframe>
+  </div>
+  <div class="text">
+    <h2 id="articleHeader">MAIN</h2>
+    <p id="articlePar">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  </div>
+</div>
+</body>
+    <script type="text/javascript" src="javascripts/main.js"></script>
 </html>
