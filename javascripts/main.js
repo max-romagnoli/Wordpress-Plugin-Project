@@ -1,20 +1,19 @@
 // DATA
 function getData() {
+  console.log("hello")
+         fetch("http://localhost/index.php")
+              .then(response => console.log(response))
          return myArray; // change data in data.js
     }
 
 dataset = getData();
-
-// COLORS
-var colorArray = ["#0026b1", "#4e9912", "#d826ac", "#00faff", "#e10078", "#6affff", "#003891", "#f8d891", "#007afd", "#003f00", "#ffdcff", "#003e51", "#ffb0a5", "#fac7e7", "#f4d8d4"];
-var color = d3.scale.ordinal().range(colorArray);
 
 // CHART SIZE
 var width = 650,
     height = 650,
     radius = Math.min(width / 2, height / 2) * 0.90;
 
-// SCALES (ricordati le interpolation alla fine)
+// SCALES (ricordati le interpolations alla fine)
 var x = d3.scale.linear()
 .range([0, 2 * Math.PI]);
 
@@ -83,23 +82,19 @@ var g = svg.selectAll("g")
 var path = g.append("path")
     .attr("d", arc)
     .style("fill", function(d) {
-        return color((d.children ? d : d.parent).name);
+        return d.color;
       })
+    .style("fill-opacity", function(d) {
+        return d.opacity;
+    })
     .on("click", click) // see the function below
-    .on("mouseover", function(d) {
-        tooltip.html(function() {
-        return d.name + "<br>" + d.value;
-      });
-        return tooltip.transition()
-    .duration(50)
-    .style("opacity", 0.9);
-      })
+    .on("mouseover", mouseOver)
     .on("mousemove", function(d) {
         return tooltip
     .style("top", (d3.event.pageY-10)+"px")
     .style("left", (d3.event.pageX+10)+"px");
       })
-    .on("mouseout", function(){return tooltip.style("opacity", 0);});
+    .on("mouseout", mouseOut);
 
 
 //.append("text")
@@ -119,12 +114,32 @@ var text = g.append("text")
       })
     .style("fill", "black");
 
+// FUNCTIONS
+
 function computeTextRotation(d) {
       var angle = x(d.x + d.dx / 2) - Math.PI / 2;
       return angle / Math.PI * 180;
     }
 
-// RECTANGULAR SECTION CONTENT ONCLICK
+function mouseOut(d) {
+  d3.select(this).style("fill-opacity", function(d) {
+    return d.opacity;
+  })
+  return tooltip.style("opacity", 0);
+}
+
+function mouseOver(d) {
+    d3.select(this).style("fill-opacity", function(d) {
+      return d.opacity - 0.1;
+    });
+    tooltip.html(function() {
+    return d.name + "<br>" + d.value;
+  });
+    return tooltip.transition()
+        .duration(50)
+        .style("opacity", 0.9);
+}
+
 function click(d) {
       document.getElementById("articleHeader").innerText = d.name;
       document.getElementById("articlePar").innerText = d.paragraph;
@@ -133,6 +148,7 @@ function click(d) {
       if (d.size !== undefined) {
           d.size += 100;
     };
+
 
 // TEXT LABELS
 text.transition().attr("opacity", 0);
@@ -145,7 +161,7 @@ path.transition()
             // associated text
         var arcText = d3.select(this.parentNode).select("text");
             // recalculate text position
-            arcText.transition().duration(750)
+            arcText.transition().duration(1)
                    .attr("opacity", 1)
                    .attr("transform", function() {
               return "rotate(" + computeTextRotation(e) + ")"

@@ -34,10 +34,14 @@
 
 body { font: 12px Arial;}
 
+text {
+  cursor: pointer;
+}
+
 path {
-  stroke: black;
-  stroke-width: 1;
-  fill: none;
+  cursor: pointer;
+}
+
 }
 
 .axis path,
